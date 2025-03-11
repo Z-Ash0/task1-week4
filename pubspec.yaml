@@ -78,7 +78,7 @@ flutter:
   fonts:
     - family: Audiowide
       fonts:
-        - asset: assets/fonts/
+        - asset: assets/fonts/Audiowide-Regular.ttf
   
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

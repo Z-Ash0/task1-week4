@@ -7,4 +7,5 @@ class AppColors {
   static const Color unPressedButton = Color(0xff2d2d2d);
   static const Color headerColor = Colors.white;
   static const Color textColor = Colors.grey;
+  static const Color productBg = Colors.black;
 }
