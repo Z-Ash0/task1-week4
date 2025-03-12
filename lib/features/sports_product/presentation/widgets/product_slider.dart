@@ -3,19 +3,28 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:task1_week4/core/utils/app_colors.dart';
 import 'package:task1_week4/core/utils/app_constants.dart';
 
-class ProductSlider extends StatelessWidget {
+class ProductSlider extends StatefulWidget {
   const ProductSlider({
     super.key,
-    required this.pageController,
   });
 
-  final PageController pageController;
+  @override
+  State<ProductSlider> createState() => _ProductSliderState();
+}
+
+class _ProductSliderState extends State<ProductSlider> {
+  late PageController pageController;
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.sizeOf(context).height * 0.5,
-      padding: const EdgeInsets.all(40),
+      padding: const EdgeInsets.all(5),
       decoration: const BoxDecoration(
         color: AppColors.productBg,
         borderRadius: BorderRadius.only(
@@ -25,7 +34,8 @@ class ProductSlider extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Expanded(
+          SizedBox(
+            height: MediaQuery.sizeOf(context).height * 0.45,
             child: PageView.builder(
               controller: pageController,
               itemBuilder: (BuildContext context, int index) => Image.asset(
@@ -35,7 +45,6 @@ class ProductSlider extends StatelessWidget {
               itemCount: imagePaths.length,
             ),
           ),
-          const SizedBox(height: 30),
           SmoothPageIndicator(
             controller: pageController,
             count: imagePaths.length,
@@ -47,7 +56,7 @@ class ProductSlider extends StatelessWidget {
             effect: const ExpandingDotsEffect(
               dotColor: AppColors.textColor,
               activeDotColor: AppColors.primaryColor,
-              dotHeight: 7,
+              dotHeight: 4,
             ),
           ),
         ],
